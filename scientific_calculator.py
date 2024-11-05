@@ -1,7 +1,7 @@
 import math
 def validate_numeric_input(x):
     if not isinstance(x, (int, float)):
-        raise TypeError("Input must be a number.")
+        raise TypeError("Input must be a number")
 
 def sin(x):
     validate_numeric_input(x)
