@@ -18,7 +18,7 @@ def tan(x):
 def sqrt(x):
     validate_numeric_input(x)
     if x < 0:
-        raise ValueError("Cannot take the square root of a negative number")
+        raise ValueError("Cannot take the square root of a negative number dsd")
     return math.sqrt(x)
 
 def log(x):
