@@ -22,4 +22,4 @@ jobs:
 
       - name: Run python test script
         run: |
-          python -m unittest"
+          python -m unittest test_scientific_calculator.py"
