@@ -1,7 +1,7 @@
 import math
 def validate_numeric_input(x):
     if not isinstance(x, (int, float)):
-        raise TypeError("Input must be a number")
+        raise TypeError("Input must be a number now")
 
 def sin(x):
     validate_numeric_input(x)
@@ -18,7 +18,7 @@ def tan(x):
 def sqrt(x):
     validate_numeric_input(x)
     if x < 0:
-        raise ValueError("Cannot take the square root of a negative number")
+        raise ValueError("Cannot take the square root of a negative number dsd")
     return math.sqrt(x)
 
 def log(x):
