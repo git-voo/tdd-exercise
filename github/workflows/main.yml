@@ -3,26 +3,22 @@ run-name: Testing Github Actions for Python script
 
 on: [push]
 
-
 jobs:
   trail-python-run:
     runs-on: ubuntu-latest
     steps:
-      # Cloning the github to the runner system
       - uses: actions/checkout@v4
 
-      # Installation of python on the runner system
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-      
-      # Running some python commands to see the installation is as desired
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
+          python-version: '3.x'
 
-      # Run the Script in our case its the ascii_printer.py
-      - name: Run ascii_printer script and see the output
+      - name: Install dependencies
         run: |
-          python ascii_printer.py
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  
+
+      - name: Run python script
+        run: |
+          python unittest
