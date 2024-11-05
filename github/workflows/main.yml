@@ -1,24 +1,28 @@
 name: TDD-Exercise
+run-name: Testing Github Actions for Python script
 
-on:
-  push:
-    branches:  
-      - main
-  pull_request:
-    branches:  
-      - main
+on: [push]
+
 
 jobs:
-  build:
+  trail-python-run:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
-  steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    steps:
+      # Cloning the github to the runner system
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      # Installation of python on the runner system
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      
+      # Running some python commands to see the installation is as desired
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+
+      # Run the Script in our case its the ascii_printer.py
+      - name: Run ascii_printer script and see the output
+        run: |
+          python ascii_printer.py
