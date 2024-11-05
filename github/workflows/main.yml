@@ -1,7 +1,13 @@
 name: TDD-Exercise
 run-name: Testing Github Actions for Python script
 
-on: [push]
+on:
+  push:
+    branches:  
+      - main
+  pull_request:
+    branches:  
+      - main
 
 jobs:
   trail-python-run:
@@ -14,6 +20,6 @@ jobs:
         with:
           python-version: '3.x'   
 
-      - name: Run python script
+      - name: Run python test script
         run: |
           python -m unittest
